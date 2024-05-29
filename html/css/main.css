@@ -1,0 +1,88 @@
+body {
+    overflow: visible;
+}
+
+.box {
+    position: absolute;
+    bottom: 9.6px;
+    left: 28.8px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+}
+
+.hud {
+    position: relative;
+    background-color: #111;
+    border-radius: 7.68px;
+    box-shadow: 0 0 7.68px #000;
+    min-width: 26.88px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.68px;
+    padding: 7.68px;
+    transition: 0.5s;
+}
+
+.hud-item {
+    position: relative;
+    width: 27.8px;
+    height: 26.92px;
+    background-color: #151515;
+    box-shadow: 0 0 7.68px #000;
+    border-radius: 6.76px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2.5px;
+}
+
+.hud-life {
+    position: relative;
+    color: rgba(255, 0, 0, 0.692);
+    text-shadow: 0 0 7.68px #000;
+    z-index: 1;
+    font-size: 13.44px;
+    margin-top: 2px;
+    margin-bottom:  2px;
+}
+.hud-shield {
+    position: relative;
+    color: rgba(155, 155, 155, 0.692);
+    text-shadow: 0 0 7.68px #000;
+    z-index: 1;
+    font-size: 13.44px;
+    margin-top: 2px;
+    margin-bottom:  2px;
+}
+.hud-hunger {
+    position: relative;
+    color: rgba(151, 124, 2, 0.692);
+    text-shadow: 0 0 7.68px #000;
+    z-index: 1;
+    font-size: 13.44px;
+    margin-top: 2px;
+    margin-bottom:  2px;
+}
+.hud-thirst {
+    position: relative;
+    color: rgba(1, 49, 151, 0.692);
+    text-shadow: 0 0 7.68px #000;
+    z-index: 1;
+    font-size: 13.44px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.hud-inside {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #222;
+    z-index: 0;
+    transition: 0.5s;
+}
