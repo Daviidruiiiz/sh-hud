@@ -7,13 +7,17 @@ Hud.Round = function(num, numDecimalPlaces)
     return math.floor(num * mult + 0.5) / mult
 end
 
+<<<<<<< HEAD
 Hud.status = {}  -- Initialize status here to make it globally accessible
 
+=======
+>>>>>>> baf548d7700ca8c27ca5ba9b280b675f31c115ea
 Hud.Start = function(hudUpdate, cb)
     -- Ensure hudUpdate is true if not explicitly set to false
     hudUpdate = hudUpdate ~= false
 
     CreateThread(function()
+<<<<<<< HEAD
         local statusLabels = { 'hunger', 'thirst' }
 
         while hudUpdate do
@@ -36,19 +40,51 @@ Hud.Start = function(hudUpdate, cb)
             Hud.status['health'] = Hud.Round(GetEntityHealth(PlayerPedId()) - 100)
             Hud.status['shield'] = Hud.Round(GetPedArmour(PlayerPedId()))
 
+=======
+        local status = {}
+        local statusLabels = { 'hunger', 'thirst' }
+        hudUpdate = hudUpdate or true
+        
+        while (hudUpdate) do 
+            for _, v in pairs(statusLabels) do
+                QBCore.Functions.GetPlayerData(function(PlayerData)
+                    local hunger = QBCore.Functions.GetPlayerData().metadata["hunger"]
+                    local thirst = QBCore.Functions.GetPlayerData().metadata["thirst"]
+                    
+                    if v == 'hunger' then
+                        status[v] = Hud.Round(hunger / 100)
+                    elseif v == 'thirst' then
+                        status[v] = Hud.Round(thirst / 100)
+                    end
+                end)
+            end
+            
+            status['health'] = Hud.Round(GetEntityHealth(PlayerPedId()) - 100)
+            status['shield'] = Hud.Round(GetPedArmour(PlayerPedId()))
+            
+>>>>>>> baf548d7700ca8c27ca5ba9b280b675f31c115ea
             SendNUIMessage({
                 type = 'updateHud',
                 map = IsPauseMenuActive() == 1,
                 radar = IsRadarEnabled() == 1,
                 status = Hud.status
             })
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> baf548d7700ca8c27ca5ba9b280b675f31c115ea
             DisplayRadar(IsPedInAnyVehicle(PlayerPedId()))
             Wait(1000)
         end
     end)
+<<<<<<< HEAD
 
     if cb then
+=======
+    
+    if (cb) then
+>>>>>>> baf548d7700ca8c27ca5ba9b280b675f31c115ea
         cb()
     end
 end
@@ -64,6 +100,7 @@ Hud.Stop = function()
         })
     end)
 end
+<<<<<<< HEAD
 
 -- Ensure you call Hud.Start before trying to print status values
 Hud.Start(true, function()
@@ -72,3 +109,5 @@ Hud.Start(true, function()
     print("Hunger:", Hud.status['hunger'], "Thirst:", Hud.status['thirst'])
     print("Health:", Hud.status['health'], "Shield:", Hud.status['shield'])
 end)
+=======
+>>>>>>> baf548d7700ca8c27ca5ba9b280b675f31c115ea
